@@ -16,10 +16,21 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[GPTViewController alloc] initWithNibName:@"GPTViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    //self.viewController = [[GPTViewController alloc] initWithNibName:@"GPTViewController" bundle:nil];
+    //self.window.rootViewController = self.viewController;
+    
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+   
+    GPTViewController *gpt = [[GPTViewController alloc] initWithNibName:@"GPTViewController" bundle:nil];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:gpt];
+    [self.navigationController setNavigationBarHidden:YES];
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
+
+    self.window.rootViewController = self.navigationController;
+    
     [self.window makeKeyAndVisible];
     return YES;
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

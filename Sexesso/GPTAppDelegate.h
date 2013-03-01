@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
-@property (strong, nonatomic) GPTViewController *viewController;
+//@property (strong, nonatomic) GPTViewController *viewController;
+@property (strong, nonatomic) UINavigationController *navigationController;
 
 @end
