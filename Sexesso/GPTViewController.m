@@ -7,6 +7,8 @@
 //
 
 #import "GPTViewController.h"
+#import "GPTPexesoViewController.h"
+#import "GPTPexeso9ViewController.h"
 
 @interface GPTViewController ()
 
@@ -18,7 +20,22 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    // TODO - condition for the first time launch
+    if(1)
+    {
+        GPTPexesoViewController *pexeso = [[GPTPexesoViewController alloc] init];
+        [self presentModalViewController:pexeso animated:NO];
+    }
+        
+    
 
+}
+- (IBAction)play9CardsGame:(UIButton *)sender {
+    
+    GPTPexeso9ViewController *pexeso9 = [[GPTPexeso9ViewController alloc] init];
+    [self presentModalViewController:pexeso9 animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning
