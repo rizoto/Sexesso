@@ -10,6 +10,8 @@
 #import "GPTPexeso9Game.h"
 #import "GPTPexeso9Cards.h"
 
+#define MATCH       2
+
 @interface GPTPexeso9Game()
 
 @property NSMutableArray* cards;
@@ -45,7 +47,7 @@ CGRect _cardSize;
     self.faceCardImage = imageFace;
     self.allCardBlock = NO;
     self.isMatched = NO;
-    self.unmatchedCard = 0;
+    self.unmatchedCard = 1; //find Joker
     UIImage *ui =  [UIImage imageNamed:imageBack[0]];
     _cardSize.size.height = ui.size.height;
     _cardSize.size.width = ui.size.width;
@@ -73,7 +75,6 @@ CGRect _cardSize;
     NSString *firstTurned = nil;
     BOOL result = NO;
     for (GPTPexeso9Card *g in self.cards) {
-        // NSLog(@"%@,%@,%c",firstTurned,g.faceCard,g.bFaceSide);
         if(!firstTurned && (g.bFaceSide))
             firstTurned = g.faceCard;
         else{
@@ -82,6 +83,7 @@ CGRect _cardSize;
                 result = YES;
                 NSLog(@"matching pair");}
         }
+        NSLog(@"%@,%@",firstTurned,g.faceCard);        
     }
     return result;
 }
@@ -91,8 +93,9 @@ CGRect _cardSize;
     int unpaired = 0;
     for (GPTPexeso9Card *g in self.cards)
     {
-        g.bFaceSide?unpaired++:0;
+         (!g.bFaceSide)?unpaired++:0;
     }
+    NSLog(@"Unpaired: %d",unpaired);
     return unpaired == self.unmatchedCard;
 }
 
@@ -163,14 +166,25 @@ CGRect _cardSize;
 
 - (void) hideMatchingCards
 {
+    NSMutableArray* a = [[NSMutableArray alloc] initWithCapacity:MATCH];
     [self.cards enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if (((GPTPexeso9Card*)obj).bFaceSide) {
             [(GPTPexeso9Card*)obj setHidden:YES];
             [(GPTPexeso9Card*)obj setBFaceSide:NO];
             [self setIsMatched:NO];
-    }
+            [(GPTPexeso9Card*)obj removeFromSuperview];
+            [a addObject:[NSNumber numberWithInt:idx]];
+            //            [self.cards removeObjectAtIndex:idx];
+        }
     }];
     
+    //delete them
+    int i= 0;
+    for (NSNumber* n in a) {
+        [self.cards removeObjectAtIndex:[n unsignedIntValue]-i];
+        NSLog(@"deleting %d", [n unsignedIntValue]-i);
+        i++;
+    }
 }
 
 - (void) hideAllCards
@@ -182,19 +196,22 @@ CGRect _cardSize;
 
 - (BOOL) turnACard:(GPTPexeso9Card*)card WithCompletionBlock: (void (^)(BOOL))block
 {
-        
+    
+    //bFaceSide=YES turned card with photos (faceside)
     if (card.bFaceSide) {
         if(--self.turnedCards == 0) [self unBlockAllCards];
         if(self.turnedCards < 0) self.turnedCards = 0;
         if (self.isMatched && self.turnedCards == 0) [self hideMatchingCards];
         if ([self isGameFinished]) {
             [self finishGame];
+            NSLog(@"Game is finished!");
         }
         if (self.isMatched) {
             return NO;
         }
     }
     else{
+    //bFaceSide=NO turning from back to face
         if ((++self.turnedCards) >= self.matchCards) {
 
             [self blockAllCards];
@@ -229,7 +246,12 @@ CGRect _cardSize;
 - (void) blockAllCards
 {
     [self.cards enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [(GPTPexeso9Card*)obj setUserInteractionEnabled:NO];
+        //   [(GPTPexeso9Card*)obj setUserInteractionEnabled:NO];
+        UIView *u = (GPTPexeso9Card*)obj;
+        [u.gestureRecognizers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            NSLog(@"disabling gesture recognizer");
+            //  [obj setEnabled:NO];
+        }];
     }];
     self.allCardBlock = YES;
 }
@@ -237,7 +259,12 @@ CGRect _cardSize;
 - (void) unBlockAllCards
 {
     [self.cards enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        [(GPTPexeso9Card*)obj setUserInteractionEnabled:YES];
+        //[(GPTPexeso9Card*)obj setUserInteractionEnabled:YES];
+        UIView *u = (GPTPexeso9Card*)obj;
+        [u.gestureRecognizers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            NSLog(@"enabling gesture recognizer");
+            //[obj setEnabled:YES];
+                    }];
     }];
     self.allCardBlock = NO;
 }

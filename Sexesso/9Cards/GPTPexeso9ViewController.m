@@ -17,6 +17,7 @@
 @interface GPTPexeso9ViewController ()
 
 @property (strong,nonatomic) GPTPexeso9Game* game;
+@property UIButton* back;
 
 @end
 
@@ -33,8 +34,8 @@
 }
 
 - (void)returnBack:(UITapGestureRecognizer *)sender {
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [self.navigationController popViewControllerAnimated:YES];
+
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)tap:(UITapGestureRecognizer *)sender {
@@ -43,13 +44,22 @@
         
 
     }
-    [sender setEnabled:YES];
+    //    [sender setEnabled:NO];
+    //[sender.view setUserInteractionEnabled:NO];
     [self.game turnACard:(GPTPexeso9Card*)sender.view WithCompletionBlock:^(BOOL finished){
         if (((GPTPexeso9Card*)sender.view).bFaceSide) {
+            // turn it back
             [self performSelector:@selector(tap:) withObject:sender afterDelay:2.0];
-            [sender setEnabled:YES];
+            //[sender setEnabled:YES];
+            //[sender.view setUserInteractionEnabled:YES];
         }}];
 }
+
+-(void) turnBackCard:(GPTPexeso9Card*) card
+{
+    
+}
+
 
 - (IBAction)blockCards:(UIButton *)sender {
     [self.game blockAllCards];
@@ -74,14 +84,18 @@
     r.size.height = 150;
     r.size.width = 20;
     [self.game matrixWith:3 By:3 With:75 And:100 AndWithFrame:r];
+    
+    UIButton* back = [[UIButton alloc] initWithFrame:CGRectMake(284, 444, 37, 37)];
+    [back addTarget:self action:@selector(returnBack:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:back];
+    
 
     
     //
 
 }
 - (IBAction)goBack:(UIButton *)sender {
-    //    [self.navigationController setNavigationBarHidden:NO animated:YES];
-    //    [self.navigationController popViewControllerAnimated:YES];
+
 }
 
 - (void)didReceiveMemoryWarning

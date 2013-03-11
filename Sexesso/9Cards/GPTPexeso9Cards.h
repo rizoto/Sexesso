@@ -14,5 +14,6 @@
 @property NSString *faceCard;
 @property NSString *backCard;
 @property CGRect size;
+@property UIGestureRecognizer *cardGestureRecognizer;
 
 @end
