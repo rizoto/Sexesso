@@ -14,10 +14,20 @@
 #define CARDS       9
 #define MATCH       2
 
+#define IS_WIDESCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
+#define IS_IPHONE_ ( [ [ [ UIDevice currentDevice ] model ] isEqualToString: @"iPhone" ] )
+#define IS_IPOD   ( [ [ [ UIDevice currentDevice ] model ] isEqualToString: @"iPod touch" ] )
+
+
+#define HEIGHT_IPHONE_5 568
+#define IS_IPHONE   ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+#define IS_IPHONE_5 ([[UIScreen mainScreen] bounds ].size.height == HEIGHT_IPHONE_5 )
+
 @interface GPTPexeso9ViewController ()
 
 @property (strong,nonatomic) GPTPexeso9Game* game;
 @property UIButton* back;
+@property (unsafe_unretained, nonatomic) IBOutlet UIImageView *backGroundImg;
 
 @end
 
@@ -75,6 +85,18 @@
     // Do any additional setup after loading the view from its nib.
     
     //- (id) initWithNumberOfCards:(int)numberOfCards BackCardImage: (NSArray*) imageBack FaceCardImage: (NSArray*) imageFace Controller:(UIViewController*) vc
+    
+    if (IS_IPHONE_5) {
+        NSLog(@"Iphone5");
+        self.backGroundImg.image = [UIImage imageNamed:@"IP5_blackbackground1136px.png"];
+        CGRect s;
+        s = self.backGroundImg.frame;
+        s.size.height = 568.00;
+        
+        [self.backGroundImg setFrame:s];
+        
+    }
+    
 
     self.game = [[GPTPexeso9Game alloc] initWithNumberOfCards:CARDS MatchCards:MATCH BackCardImage:@[@"card_back_150x200px-01.png",@"card_back_150x200px-02.png",@"card_back_150x200px-02.png",@"card_back_150x200px-01.png",@"card_back_150x200px-01.png",@"card_back_150x200px-02.png",@"card_back_150x200px-02.png",@"card_back_150x200px-01.png",@"card_back_150x200px-01.png"] FaceCardImage:@[@"card_face_150-200-01.png",@"card_face_150-200-02.png",@"card_face_150-200-03.png",@"card_face_150-200-04.png",@"card_face_150-200-01.png",@"card_face_150-200-02.png",@"card_face_150-200-03.png",@"card_face_150-200-04.png",@"card_face_150-200-05.png"] Controller:self];
     [self.game generateCards];
@@ -85,7 +107,7 @@
     r.size.width = 20;
     [self.game matrixWith:3 By:3 With:75 And:100 AndWithFrame:r];
     
-    UIButton* back = [[UIButton alloc] initWithFrame:CGRectMake(284, 444, 37, 37)];
+    UIButton* back = [[UIButton alloc] initWithFrame:CGRectMake(284, (!IS_IPHONE_5)?444:524, 37, 37)];
     [back addTarget:self action:@selector(returnBack:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:back];
     
@@ -104,4 +126,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidUnload {
+    [self setBackGroundImg:nil];
+    [super viewDidUnload];
+}
 @end

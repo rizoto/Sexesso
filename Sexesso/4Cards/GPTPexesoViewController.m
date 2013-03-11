@@ -26,6 +26,7 @@
 @interface GPTPexesoViewController ()
 
 @property (strong,nonatomic) GPTPexesoGame* game;
+@property (unsafe_unretained, nonatomic) IBOutlet UIImageView *backGroundImg;
 
 @end
 
@@ -36,9 +37,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        if (IS_IPHONE_5) {
-            NSLog(@"Iphone5");
-        }
+
 
     }
     return self;
@@ -71,7 +70,16 @@
     // Do any additional setup after loading the view from its nib.
     
     //- (id) initWithNumberOfCards:(int)numberOfCards BackCardImage: (NSArray*) imageBack FaceCardImage: (NSArray*) imageFace Controller:(UIViewController*) vc
-
+    if (IS_IPHONE_5) {
+        NSLog(@"Iphone5");
+        self.backGroundImg.image = [UIImage imageNamed:@"IP5_blackbackground1136px.png"];
+        CGRect s;
+        s = self.backGroundImg.frame;
+        s.size.height = 568.00;
+        
+        [self.backGroundImg setFrame:s];
+        
+    }
     self.game = [[GPTPexesoGame alloc] initWithNumberOfCards:CARDS MatchCards:MATCH BackCardImage:@[@"card-back-230.png",@"card-back-230.png",@"card-back-230.png",@"card-back-230.png"] FaceCardImage:@[@"4cards_faces-02.png",@"4cards_faces-01.png",@"4cards_faces-03.png",@"4cards_faces-02.png"] Controller:self];
     [self.game generateCards];
     CGRect r;
@@ -93,4 +101,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidUnload {
+    [self setBackGroundImg:nil];
+    [super viewDidUnload];
+}
 @end
