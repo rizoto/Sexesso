@@ -243,6 +243,40 @@ CGRect _cardSize;
     return YES;
 }
 
+
+- (void) turnACardFromBackToFaceWithAnimation: (GPTPexeso9Card*)card
+{
+    // this is the first step to turn the card with seeing back to show the photos
+    [UIView transitionWithView:card duration:1.0 options:UIViewAnimationOptionTransitionFlipFromLeft
+                    animations:^{
+                        UIImage *ui;
+                        ui = [card image];
+                        
+                        //set image to FACE
+                        [card setImage:[UIImage imageNamed:card.faceCard]];
+                        card.bFaceSide = YES;
+                        //card.bFaceSide?++self.turnedCards:--self.turnedCards;
+                    }
+                    completion:nil ];
+}
+
+- (void) turnACardFromFaceToBackWithAnimation: (GPTPexeso9Card*)card
+{
+    // this is the last step to turn the card with seeing front to show the back
+    [UIView transitionWithView:card duration:1.0 options:UIViewAnimationOptionTransitionFlipFromLeft
+                    animations:^{
+                        UIImage *ui;
+                        ui = [card image];
+                        
+                        //set image to FACE
+                        [card setImage:[UIImage imageNamed:card.backCard]];
+                        card.bFaceSide = NO;
+                        //card.bFaceSide?++self.turnedCards:--self.turnedCards;
+                    }
+                    completion:nil ];
+    
+}
+
 - (void) blockAllCards
 {
     [self.cards enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
@@ -295,7 +329,7 @@ CGRect _cardSize;
             r.origin.y = y1 + j*(yg+imageHeight);
             [self.cards[idx] setFrame:r];
             // add touches
-            UITapGestureRecognizer *t = [[UITapGestureRecognizer alloc] initWithTarget:self.controller action:@selector(tap:)];
+            UITapGestureRecognizer *t = [[UITapGestureRecognizer alloc] initWithTarget:self.controller action:@selector(tap2:)]; //tap or tap2
             [self.cards[idx] addGestureRecognizer:t];
             t.delegate = (id)self.controller;
             [(UIView*)self.cards[idx]  setUserInteractionEnabled:YES];

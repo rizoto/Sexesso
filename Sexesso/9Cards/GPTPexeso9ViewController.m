@@ -49,25 +49,36 @@
 }
 
 - (void)tap:(UITapGestureRecognizer *)sender {
+    NSLog(@".....tap....");
    
     if (sender.numberOfTouches > 0) { // tap screen -> turn a card
         
 
     }
-    //    [sender setEnabled:NO];
-    //[sender.view setUserInteractionEnabled:NO];
+    if (!((GPTPexeso9Card*)sender.view).bFaceSide){ // face side, disable turning
+        [sender setEnabled:NO];
+        sender.enabled = NO;    
+        [sender.view setUserInteractionEnabled:NO]; }
     [self.game turnACard:(GPTPexeso9Card*)sender.view WithCompletionBlock:^(BOOL finished){
         if (((GPTPexeso9Card*)sender.view).bFaceSide) {
             // turn it back
-            [self performSelector:@selector(tap:) withObject:sender afterDelay:2.0];
-            //[sender setEnabled:YES];
-            //[sender.view setUserInteractionEnabled:YES];
+            [self performSelector:@selector(tap:) withObject:sender afterDelay:3.5];
+             NSLog(@"--------------->");
+            [sender setEnabled:YES];
+            [sender.view setUserInteractionEnabled:YES];
+
         }}];
 }
 
--(void) turnBackCard:(GPTPexeso9Card*) card
-{
+- (void)tap2:(UITapGestureRecognizer *)sender {
+ 
+    NSLog(@".....tap2....");
     
+    [self.game turnACardFromBackToFaceWithAnimation:(GPTPexeso9Card*)sender.view];
+    [sender setEnabled:NO]; // turned card can't be hit
+                            // will turn back automatically
+    [self performSelector:@selector(turnACardFromFaceToBackWithAnimation:) withObject:sender afterDelay:1.5];
+
 }
 
 

@@ -20,5 +20,8 @@
 - (void) unBlockAllCards;
 
 - (BOOL) turnACard:(GPTPexeso9Card*) card WithCompletionBlock: (void (^)(BOOL))block;
+- (void) turnACardFromBackToFaceWithAnimation: (GPTPexeso9Card*)card;
+- (void) turnACardFromFaceToBackWithAnimation: (GPTPexeso9Card*)card;
+
 
 @end
