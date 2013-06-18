@@ -9,19 +9,12 @@
 #import "GPTPexesoViewController.h"
 #import "GPTPexesoGame.h"
 #import "GPTPexesoCard.h"
+#import "device_def.h"
 
 #define BACKSIDESL  @"cardback.png"
 #define CARDS       4
 #define MATCH       2
 
-#define IS_WIDESCREEN ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )568 ) < DBL_EPSILON )
-#define IS_IPHONE_ ( [ [ [ UIDevice currentDevice ] model ] isEqualToString: @"iPhone" ] )
-#define IS_IPOD   ( [ [ [ UIDevice currentDevice ] model ] isEqualToString: @"iPod touch" ] )
-
-
-#define HEIGHT_IPHONE_5 568
-#define IS_IPHONE   ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
-#define IS_IPHONE_5 ([[UIScreen mainScreen] bounds ].size.height == HEIGHT_IPHONE_5 )
 
 @interface GPTPexesoViewController ()
 

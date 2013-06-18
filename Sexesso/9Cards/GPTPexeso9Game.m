@@ -10,8 +10,6 @@
 #import "GPTPexeso9Game.h"
 #import "GPTPexeso9Cards.h"
 
-#define MATCH       2
-
 @interface GPTPexeso9Game()
 
 @property NSMutableArray* cards;
@@ -23,6 +21,7 @@
 @property NSArray* backCardImage;
 @property NSArray* faceCardImage;
 @property BOOL isMatched;
+@property GPTPexeso9Card *firstCard;
 
 @property UIImageView *bigGirl;
 @property UIImageView *smallGirl;
@@ -91,10 +90,11 @@ CGRect _cardSize;
 - (BOOL) isGameFinished
 {
     int unpaired = 0;
-    for (GPTPexeso9Card *g in self.cards)
-    {
-         (!g.bFaceSide)?unpaired++:0;
-    }
+//    for (GPTPexeso9Card *g in self.cards)
+//    {
+//         (g.bFaceSide)?unpaired++:0;
+//    }
+    unpaired = self.cards.count;
     NSLog(@"Unpaired: %d",unpaired);
     return unpaired == self.unmatchedCard;
 }
@@ -166,7 +166,7 @@ CGRect _cardSize;
 
 - (void) hideMatchingCards
 {
-    NSMutableArray* a = [[NSMutableArray alloc] initWithCapacity:MATCH];
+    NSMutableArray* a = [[NSMutableArray alloc] initWithCapacity:self.matchCards];
     [self.cards enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         if (((GPTPexeso9Card*)obj).bFaceSide) {
             [(GPTPexeso9Card*)obj setHidden:YES];
@@ -194,59 +194,72 @@ CGRect _cardSize;
     }];
 }
 
-- (BOOL) turnACard:(GPTPexeso9Card*)card WithCompletionBlock: (void (^)(BOOL))block
-{
-    
-    //bFaceSide=YES turned card with photos (faceside)
-    if (card.bFaceSide) {
-        if(--self.turnedCards == 0) [self unBlockAllCards];
-        if(self.turnedCards < 0) self.turnedCards = 0;
-        if (self.isMatched && self.turnedCards == 0) [self hideMatchingCards];
-        if ([self isGameFinished]) {
-            [self finishGame];
-            NSLog(@"Game is finished!");
-        }
-        if (self.isMatched) {
-            return NO;
-        }
-    }
-    else{
-    //bFaceSide=NO turning from back to face
-        if ((++self.turnedCards) >= self.matchCards) {
-
-            [self blockAllCards];
-
-            
-        }
-    }
-    
-    [UIView transitionWithView:card duration:1.0 options:UIViewAnimationOptionTransitionFlipFromLeft
-                    animations:^{
-                        UIImage *ui;
-                        ui = [card image];
-                        [card setImage:[UIImage imageNamed:card.bFaceSide?card.backCard:card.faceCard]];
-                        card.bFaceSide = card.bFaceSide?NO:YES;
-                        //card.bFaceSide?++self.turnedCards:--self.turnedCards;
-                        NSLog(@"turned cards: %d", self.turnedCards);
-                        if(self.turnedCards >= self.matchCards && [self areCardsMatching])
-                        {
-                            // find match, hide the cards
-                            self.isMatched = YES;
-                        }
-                    }
-                    completion:(void (^)(BOOL))block ];
-    [self.cards enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        NSLog(@"%@",((GPTPexeso9Card*)obj).bFaceSide?@"YES":@"NO");
-    }];
-       
-             
-    return YES;
-}
+//- (BOOL) turnACard:(GPTPexeso9Card*)card WithCompletionBlock: (void (^)(BOOL))block
+//{
+//    
+//    //bFaceSide=YES turned card with photos (faceside)
+//    if (card.bFaceSide) {
+//        if(--self.turnedCards == 0) [self unBlockAllCards];
+//        if(self.turnedCards < 0) self.turnedCards = 0;
+//        if (self.isMatched && self.turnedCards == 0) [self hideMatchingCards];
+//        if ([self isGameFinished]) {
+//            [self finishGame];
+//            NSLog(@"Game is finished!");
+//        }
+//        if (self.isMatched) {
+//            return NO;
+//        }
+//    }
+//    else{
+//    //bFaceSide=NO turning from back to face
+//        if ((++self.turnedCards) >= self.matchCards) {
+//
+//            [self blockAllCards];
+//
+//            
+//        }
+//    }
+//    
+//    [UIView transitionWithView:card duration:1.0 options:UIViewAnimationOptionTransitionFlipFromLeft
+//                    animations:^{
+//                        UIImage *ui;
+//                        ui = [card image];
+//                        [card setImage:[UIImage imageNamed:card.bFaceSide?card.backCard:card.faceCard]];
+//                        card.bFaceSide = card.bFaceSide?NO:YES;
+//                        //card.bFaceSide?++self.turnedCards:--self.turnedCards;
+//                        NSLog(@"turned cards: %d", self.turnedCards);
+//                        if(self.turnedCards >= self.matchCards && [self areCardsMatching])
+//                        {
+//                            // find match, hide the cards
+//                            self.isMatched = YES;
+//                        }
+//                    }
+//                    completion:(void (^)(BOOL))block ];
+//    [self.cards enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+//        NSLog(@"%@",((GPTPexeso9Card*)obj).bFaceSide?@"YES":@"NO");
+//    }];
+//       
+//             
+//    return YES;
+//}
 
 
 - (void) turnACardFromBackToFaceWithAnimation: (GPTPexeso9Card*)card
 {
     // this is the first step to turn the card with seeing back to show the photos
+    card.bFaceSide = YES;
+    // if MATCH - 1 , block others
+    if (self.matchCards == (++self.turnedCards))
+    {
+        [self blockAllCards];
+
+
+        if([self areCardsMatching])
+        {
+            // find match, hide the cards
+            self.isMatched = YES;
+        }
+    }
     [UIView transitionWithView:card duration:1.0 options:UIViewAnimationOptionTransitionFlipFromLeft
                     animations:^{
                         UIImage *ui;
@@ -254,37 +267,87 @@ CGRect _cardSize;
                         
                         //set image to FACE
                         [card setImage:[UIImage imageNamed:card.faceCard]];
-                        card.bFaceSide = YES;
+                        NSLog(@"From Back to Face, %d", self.turnedCards);
                         //card.bFaceSide?++self.turnedCards:--self.turnedCards;
+ 
+                        
                     }
                     completion:nil ];
+    
+
+        if ([self isGameFinished] && (self.turnedCards == self.unmatchedCard)) {
+            [self finishGame];
+            NSLog(@"Game is finished!");
+        }
+
 }
 
 - (void) turnACardFromFaceToBackWithAnimation: (GPTPexeso9Card*)card
 {
     // this is the last step to turn the card with seeing front to show the back
+    if (self.isMatched)
+    {
+//        [NSTimer scheduledTimerWithTimeInterval:.9 target:self selector:@selector(hideMatchingCards:) userInfo:nil repeats:NO];
+        NSDate *future = [NSDate dateWithTimeIntervalSinceNow: 0.9 ];
+        [NSThread sleepUntilDate:future];
+        [self hideMatchingCards];
+        [self unBlockAllCards];
+        self.isMatched = NO;
+
+    }
+
+    // if 2 cards turned, wait and turn both back in same time
+    if (self.turnedCards == self.matchCards) {
+        // 1. wait till second
+        self.firstCard = card;
+    }
+    else{
     [UIView transitionWithView:card duration:1.0 options:UIViewAnimationOptionTransitionFlipFromLeft
                     animations:^{
                         UIImage *ui;
                         ui = [card image];
                         
-                        //set image to FACE
+                        //set image to BACK
                         [card setImage:[UIImage imageNamed:card.backCard]];
-                        card.bFaceSide = NO;
+
+                        NSLog(@"From Face to Back, %d", self.turnedCards);
                         //card.bFaceSide?++self.turnedCards:--self.turnedCards;
                     }
                     completion:nil ];
+        if (self.firstCard) {
+            [UIView transitionWithView:self.firstCard duration:1.0 options:UIViewAnimationOptionTransitionFlipFromLeft
+                            animations:^{
+                                UIImage *ui;
+                                ui = [self.firstCard image];
+                                
+                                //set image to BACK
+                                [self.firstCard  setImage:[UIImage imageNamed:self.firstCard .backCard]];
+                                
+                                NSLog(@"From Face to Back, %d", self.turnedCards);
+                                //card.bFaceSide?++self.turnedCards:--self.turnedCards;
+                            }
+                            completion:nil ];
+            self.firstCard = nil;
+        }
+    }
+    card.bFaceSide = NO;
+    --self.turnedCards;
+    
+    if (self.turnedCards == 0)
+    {
+        [self unBlockAllCards];
+    }
     
 }
 
 - (void) blockAllCards
 {
     [self.cards enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        //   [(GPTPexeso9Card*)obj setUserInteractionEnabled:NO];
+        [(GPTPexeso9Card*)obj setUserInteractionEnabled:NO];
         UIView *u = (GPTPexeso9Card*)obj;
         [u.gestureRecognizers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             NSLog(@"disabling gesture recognizer");
-            //  [obj setEnabled:NO];
+            [obj setEnabled:NO];
         }];
     }];
     self.allCardBlock = YES;
@@ -293,11 +356,11 @@ CGRect _cardSize;
 - (void) unBlockAllCards
 {
     [self.cards enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        //[(GPTPexeso9Card*)obj setUserInteractionEnabled:YES];
+        [(GPTPexeso9Card*)obj setUserInteractionEnabled:YES];
         UIView *u = (GPTPexeso9Card*)obj;
         [u.gestureRecognizers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             NSLog(@"enabling gesture recognizer");
-            //[obj setEnabled:YES];
+            [obj setEnabled:YES];
                     }];
     }];
     self.allCardBlock = NO;

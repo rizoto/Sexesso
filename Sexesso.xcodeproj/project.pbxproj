@@ -107,6 +107,33 @@
 		709E8E9916C613E80084BBCC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 709E8E9816C613E80084BBCC /* Default-568h@2x.png */; };
 		709E8E9C16C613E80084BBCC /* GPTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 709E8E9B16C613E80084BBCC /* GPTViewController.m */; };
 		709E8E9F16C613E80084BBCC /* GPTViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 709E8E9D16C613E80084BBCC /* GPTViewController.xib */; };
+		70AA0387176D6CC90031D2BC /* ip5_share_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA0386176D6CC90031D2BC /* ip5_share_screen.png */; };
+		70AA0389176D8A6F0031D2BC /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA0388176D8A6F0031D2BC /* share.png */; };
+		70AA038B176D92D90031D2BC /* share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA038A176D92D90031D2BC /* share@2x.png */; };
+		70AA038E176D98FD0031D2BC /* pay.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA038C176D98FD0031D2BC /* pay.png */; };
+		70AA038F176D98FD0031D2BC /* pay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA038D176D98FD0031D2BC /* pay@2x.png */; };
+		70AA0396176DA4110031D2BC /* GPTHelpScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AA0394176DA4110031D2BC /* GPTHelpScreenViewController.m */; };
+		70AA0397176DA4110031D2BC /* GPTHelpScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70AA0395176DA4110031D2BC /* GPTHelpScreenViewController.xib */; };
+		70AA039B176DA7EA0031D2BC /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA0399176DA7EA0031D2BC /* help.png */; };
+		70AA039C176DA7EA0031D2BC /* help@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA039A176DA7EA0031D2BC /* help@2x.png */; };
+		70AA039E176DA8C20031D2BC /* ip5_help.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA039D176DA8C20031D2BC /* ip5_help.png */; };
+		70AA03A1176DACE40031D2BC /* ip5_help@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA03A0176DACE40031D2BC /* ip5_help@2x.png */; };
+		70AA03A4176DFBB40031D2BC /* help_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA03A2176DFBB40031D2BC /* help_back.png */; };
+		70AA03A5176DFBB40031D2BC /* help_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA03A3176DFBB40031D2BC /* help_back@2x.png */; };
+		70AA03A9176E10900031D2BC /* GPTCheatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AA03A7176E10900031D2BC /* GPTCheatViewController.m */; };
+		70AA03AA176E10900031D2BC /* GPTCheatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70AA03A8176E10900031D2BC /* GPTCheatViewController.xib */; };
+		70AA03D3176E12650031D2BC /* Vanessa.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA03AC176E12650031D2BC /* Vanessa.png */; };
+		70AA03D4176E12650031D2BC /* Vanessa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA03AD176E12650031D2BC /* Vanessa@2x.png */; };
+		70AA03F7176E12650031D2BC /* ip5_vanessa.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA03D2176E12650031D2BC /* ip5_vanessa.png */; };
+		70AA03F9176E19410031D2BC /* ip5_vanessa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA03F8176E19410031D2BC /* ip5_vanessa@2x.png */; };
+		70AA03FE176E1A070031D2BC /* GPTTalkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70AA03FC176E1A070031D2BC /* GPTTalkViewController.m */; };
+		70AA03FF176E1A070031D2BC /* GPTTalkViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 70AA03FD176E1A070031D2BC /* GPTTalkViewController.xib */; };
+		70AA0405176E1C7E0031D2BC /* pink_chat.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA0401176E1C7E0031D2BC /* pink_chat.png */; };
+		70AA0406176E1C7E0031D2BC /* IP5_chat-background-screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA0402176E1C7E0031D2BC /* IP5_chat-background-screen.png */; };
+		70AA0407176E1C7E0031D2BC /* pink_chat@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA0403176E1C7E0031D2BC /* pink_chat@2x.png */; };
+		70AA0408176E1C7E0031D2BC /* IP5_chat-background-screen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA0404176E1C7E0031D2BC /* IP5_chat-background-screen@2x.png */; };
+		70AA040B176E1F5F0031D2BC /* ip4_chat_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA0409176E1F5F0031D2BC /* ip4_chat_bg.png */; };
+		70AA040C176E1F5F0031D2BC /* ip4_chat_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70AA040A176E1F5F0031D2BC /* ip4_chat_bg@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -221,6 +248,37 @@
 		709E8E9A16C613E80084BBCC /* GPTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.objj.h; path = GPTViewController.h; sourceTree = "<group>"; };
 		709E8E9B16C613E80084BBCC /* GPTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPTViewController.m; sourceTree = "<group>"; };
 		709E8E9E16C613E80084BBCC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GPTViewController.xib; sourceTree = "<group>"; };
+		70AA0386176D6CC90031D2BC /* ip5_share_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ip5_share_screen.png; path = Sexesso/images/ip5_share_screen.png; sourceTree = SOURCE_ROOT; };
+		70AA0388176D8A6F0031D2BC /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = share.png; path = Sexesso/images/share.png; sourceTree = SOURCE_ROOT; };
+		70AA038A176D92D90031D2BC /* share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share@2x.png"; path = "Sexesso/images/share@2x.png"; sourceTree = SOURCE_ROOT; };
+		70AA038C176D98FD0031D2BC /* pay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pay.png; path = Sexesso/images/pay.png; sourceTree = SOURCE_ROOT; };
+		70AA038D176D98FD0031D2BC /* pay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pay@2x.png"; path = "Sexesso/images/pay@2x.png"; sourceTree = SOURCE_ROOT; };
+		70AA0393176DA4110031D2BC /* GPTHelpScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPTHelpScreenViewController.h; path = Help/GPTHelpScreenViewController.h; sourceTree = "<group>"; };
+		70AA0394176DA4110031D2BC /* GPTHelpScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPTHelpScreenViewController.m; path = Help/GPTHelpScreenViewController.m; sourceTree = "<group>"; };
+		70AA0395176DA4110031D2BC /* GPTHelpScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GPTHelpScreenViewController.xib; path = Help/GPTHelpScreenViewController.xib; sourceTree = "<group>"; };
+		70AA0399176DA7EA0031D2BC /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = help.png; path = images/help.png; sourceTree = "<group>"; };
+		70AA039A176DA7EA0031D2BC /* help@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "help@2x.png"; path = "images/help@2x.png"; sourceTree = "<group>"; };
+		70AA039D176DA8C20031D2BC /* ip5_help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ip5_help.png; path = images/ip5_help.png; sourceTree = "<group>"; };
+		70AA039F176DA91B0031D2BC /* device_def.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = device_def.h; sourceTree = "<group>"; };
+		70AA03A0176DACE40031D2BC /* ip5_help@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ip5_help@2x.png"; path = "images/ip5_help@2x.png"; sourceTree = "<group>"; };
+		70AA03A2176DFBB40031D2BC /* help_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = help_back.png; path = images/help_back.png; sourceTree = "<group>"; };
+		70AA03A3176DFBB40031D2BC /* help_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "help_back@2x.png"; path = "images/help_back@2x.png"; sourceTree = "<group>"; };
+		70AA03A6176E10900031D2BC /* GPTCheatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPTCheatViewController.h; path = Cheat/GPTCheatViewController.h; sourceTree = "<group>"; };
+		70AA03A7176E10900031D2BC /* GPTCheatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPTCheatViewController.m; path = Cheat/GPTCheatViewController.m; sourceTree = "<group>"; };
+		70AA03A8176E10900031D2BC /* GPTCheatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GPTCheatViewController.xib; path = Cheat/GPTCheatViewController.xib; sourceTree = "<group>"; };
+		70AA03AC176E12650031D2BC /* Vanessa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Vanessa.png; path = images/Vanessa.png; sourceTree = "<group>"; };
+		70AA03AD176E12650031D2BC /* Vanessa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Vanessa@2x.png"; path = "images/Vanessa@2x.png"; sourceTree = "<group>"; };
+		70AA03D2176E12650031D2BC /* ip5_vanessa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ip5_vanessa.png; path = images/ip5_vanessa.png; sourceTree = "<group>"; };
+		70AA03F8176E19410031D2BC /* ip5_vanessa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ip5_vanessa@2x.png"; path = "images/ip5_vanessa@2x.png"; sourceTree = "<group>"; };
+		70AA03FB176E1A070031D2BC /* GPTTalkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPTTalkViewController.h; path = Talk/GPTTalkViewController.h; sourceTree = "<group>"; };
+		70AA03FC176E1A070031D2BC /* GPTTalkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPTTalkViewController.m; path = Talk/GPTTalkViewController.m; sourceTree = "<group>"; };
+		70AA03FD176E1A070031D2BC /* GPTTalkViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GPTTalkViewController.xib; path = Talk/GPTTalkViewController.xib; sourceTree = "<group>"; };
+		70AA0401176E1C7E0031D2BC /* pink_chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pink_chat.png; path = images/pink_chat.png; sourceTree = "<group>"; };
+		70AA0402176E1C7E0031D2BC /* IP5_chat-background-screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "IP5_chat-background-screen.png"; path = "images/IP5_chat-background-screen.png"; sourceTree = "<group>"; };
+		70AA0403176E1C7E0031D2BC /* pink_chat@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pink_chat@2x.png"; path = "images/pink_chat@2x.png"; sourceTree = "<group>"; };
+		70AA0404176E1C7E0031D2BC /* IP5_chat-background-screen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "IP5_chat-background-screen@2x.png"; path = "images/IP5_chat-background-screen@2x.png"; sourceTree = "<group>"; };
+		70AA0409176E1F5F0031D2BC /* ip4_chat_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ip4_chat_bg.png; path = images/ip4_chat_bg.png; sourceTree = "<group>"; };
+		70AA040A176E1F5F0031D2BC /* ip4_chat_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ip4_chat_bg@2x.png"; path = "images/ip4_chat_bg@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +298,9 @@
 		704FE9A916DD0AC2006A1222 /* WorkFlow */ = {
 			isa = PBXGroup;
 			children = (
+				70AA0392176DA2DE0031D2BC /* Cheat */,
+				70AA0391176DA2A70031D2BC /* Talk */,
+				70AA0390176DA29C0031D2BC /* Help */,
 				7068133816E4E3AA00EB8732 /* 9Cards */,
 				706812C916E4D2A200EB8732 /* 4Cards */,
 				708D19A716DD0EE100A6A819 /* Menu */,
@@ -265,6 +326,11 @@
 		706812D116E4D2A200EB8732 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				70AA038C176D98FD0031D2BC /* pay.png */,
+				70AA038D176D98FD0031D2BC /* pay@2x.png */,
+				70AA038A176D92D90031D2BC /* share@2x.png */,
+				70AA0388176D8A6F0031D2BC /* share.png */,
+				70AA0386176D6CC90031D2BC /* ip5_share_screen.png */,
 				706812EA16E4D7C600EB8732 /* large-face-empty.png */,
 				706812EB16E4D7C600EB8732 /* large-face-empty@2x.png */,
 				706812EC16E4D7C600EB8732 /* large-girl-03.png */,
@@ -429,6 +495,7 @@
 				704FE9A916DD0AC2006A1222 /* WorkFlow */,
 				704FE9A516DD003F006A1222 /* app_icon.png */,
 				704FE9A616DD003F006A1222 /* app_icon@2x.png */,
+				70AA039F176DA91B0031D2BC /* device_def.h */,
 				709E8E9116C613E80084BBCC /* GPTAppDelegate.h */,
 				709E8E9216C613E80084BBCC /* GPTAppDelegate.m */,
 				709E8E8916C613E80084BBCC /* Supporting Files */,
@@ -448,6 +515,76 @@
 				709E8E9816C613E80084BBCC /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		70AA0390176DA29C0031D2BC /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				70AA0398176DA7DA0031D2BC /* images */,
+				70AA0393176DA4110031D2BC /* GPTHelpScreenViewController.h */,
+				70AA0394176DA4110031D2BC /* GPTHelpScreenViewController.m */,
+				70AA0395176DA4110031D2BC /* GPTHelpScreenViewController.xib */,
+			);
+			name = Help;
+			sourceTree = "<group>";
+		};
+		70AA0391176DA2A70031D2BC /* Talk */ = {
+			isa = PBXGroup;
+			children = (
+				70AA0400176E1A260031D2BC /* images */,
+				70AA03FB176E1A070031D2BC /* GPTTalkViewController.h */,
+				70AA03FC176E1A070031D2BC /* GPTTalkViewController.m */,
+				70AA03FD176E1A070031D2BC /* GPTTalkViewController.xib */,
+			);
+			name = Talk;
+			sourceTree = "<group>";
+		};
+		70AA0392176DA2DE0031D2BC /* Cheat */ = {
+			isa = PBXGroup;
+			children = (
+				70AA03AB176E11960031D2BC /* images */,
+				70AA03A6176E10900031D2BC /* GPTCheatViewController.h */,
+				70AA03A7176E10900031D2BC /* GPTCheatViewController.m */,
+				70AA03A8176E10900031D2BC /* GPTCheatViewController.xib */,
+			);
+			name = Cheat;
+			sourceTree = "<group>";
+		};
+		70AA0398176DA7DA0031D2BC /* images */ = {
+			isa = PBXGroup;
+			children = (
+				70AA03A2176DFBB40031D2BC /* help_back.png */,
+				70AA03A3176DFBB40031D2BC /* help_back@2x.png */,
+				70AA03A0176DACE40031D2BC /* ip5_help@2x.png */,
+				70AA039D176DA8C20031D2BC /* ip5_help.png */,
+				70AA0399176DA7EA0031D2BC /* help.png */,
+				70AA039A176DA7EA0031D2BC /* help@2x.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		70AA03AB176E11960031D2BC /* images */ = {
+			isa = PBXGroup;
+			children = (
+				70AA03F8176E19410031D2BC /* ip5_vanessa@2x.png */,
+				70AA03AC176E12650031D2BC /* Vanessa.png */,
+				70AA03AD176E12650031D2BC /* Vanessa@2x.png */,
+				70AA03D2176E12650031D2BC /* ip5_vanessa.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		70AA0400176E1A260031D2BC /* images */ = {
+			isa = PBXGroup;
+			children = (
+				70AA0409176E1F5F0031D2BC /* ip4_chat_bg.png */,
+				70AA040A176E1F5F0031D2BC /* ip4_chat_bg@2x.png */,
+				70AA0401176E1C7E0031D2BC /* pink_chat.png */,
+				70AA0402176E1C7E0031D2BC /* IP5_chat-background-screen.png */,
+				70AA0403176E1C7E0031D2BC /* pink_chat@2x.png */,
+				70AA0404176E1C7E0031D2BC /* IP5_chat-background-screen@2x.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -590,6 +727,30 @@
 				7068138A16E4E3AA00EB8732 /* large-girl-06.png in Resources */,
 				7035F10B16EE8C9600999B5B /* IP5_blackbackground1136px@2x.png in Resources */,
 				7035F10D16EE8EA500999B5B /* IP5_menu_background_1136px@2x.png in Resources */,
+				70AA0387176D6CC90031D2BC /* ip5_share_screen.png in Resources */,
+				70AA0389176D8A6F0031D2BC /* share.png in Resources */,
+				70AA038B176D92D90031D2BC /* share@2x.png in Resources */,
+				70AA038E176D98FD0031D2BC /* pay.png in Resources */,
+				70AA038F176D98FD0031D2BC /* pay@2x.png in Resources */,
+				70AA0397176DA4110031D2BC /* GPTHelpScreenViewController.xib in Resources */,
+				70AA039B176DA7EA0031D2BC /* help.png in Resources */,
+				70AA039C176DA7EA0031D2BC /* help@2x.png in Resources */,
+				70AA039E176DA8C20031D2BC /* ip5_help.png in Resources */,
+				70AA03A1176DACE40031D2BC /* ip5_help@2x.png in Resources */,
+				70AA03A4176DFBB40031D2BC /* help_back.png in Resources */,
+				70AA03A5176DFBB40031D2BC /* help_back@2x.png in Resources */,
+				70AA03AA176E10900031D2BC /* GPTCheatViewController.xib in Resources */,
+				70AA03D3176E12650031D2BC /* Vanessa.png in Resources */,
+				70AA03D4176E12650031D2BC /* Vanessa@2x.png in Resources */,
+				70AA03F7176E12650031D2BC /* ip5_vanessa.png in Resources */,
+				70AA03F9176E19410031D2BC /* ip5_vanessa@2x.png in Resources */,
+				70AA03FF176E1A070031D2BC /* GPTTalkViewController.xib in Resources */,
+				70AA0405176E1C7E0031D2BC /* pink_chat.png in Resources */,
+				70AA0406176E1C7E0031D2BC /* IP5_chat-background-screen.png in Resources */,
+				70AA0407176E1C7E0031D2BC /* pink_chat@2x.png in Resources */,
+				70AA0408176E1C7E0031D2BC /* IP5_chat-background-screen@2x.png in Resources */,
+				70AA040B176E1F5F0031D2BC /* ip4_chat_bg.png in Resources */,
+				70AA040C176E1F5F0031D2BC /* ip4_chat_bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +770,9 @@
 				7068136416E4E3AA00EB8732 /* GPTPexeso9Cards.m in Sources */,
 				7068136516E4E3AA00EB8732 /* GPTPexeso9Game.m in Sources */,
 				7068136616E4E3AA00EB8732 /* GPTPexeso9ViewController.m in Sources */,
+				70AA0396176DA4110031D2BC /* GPTHelpScreenViewController.m in Sources */,
+				70AA03A9176E10900031D2BC /* GPTCheatViewController.m in Sources */,
+				70AA03FE176E1A070031D2BC /* GPTTalkViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
