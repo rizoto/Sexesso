@@ -11,5 +11,10 @@
 @interface GPTAppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) NSTimer *singeltonGameTimer; // only one game timer for the whole game
+
+- (void)changeRootViewController:(NSString *)controllerName;
+
+
 
 @end
